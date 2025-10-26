@@ -5,9 +5,15 @@
         <h1 class="titulo">Crud Users</h1>
         <h2 class="subtitulo">Mais eficiência no controle de usuários</h2>
 
-        <input class="input-form" type="text" placeholder="Digite seu nome">
+        <input 
+            [(ngModel)]="userName"
+            [ngModelOptions]="{standalone: true}"
+            name="userName"
+            class="input-form" 
+            type="text" 
+            placeholder="Digite seu nome"/>
 
-        <app-button textButton="Acessar" size="100"></app-button>
+        <app-button textButton="Acessar" size="100" (click)="login()"></app-button>
     </form>
 
     <footer> © 2025 | Desenvolvido por João Sena </footer>
