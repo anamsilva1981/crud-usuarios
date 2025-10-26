@@ -2,3 +2,7 @@
 @import '../node_modules/bootstrap//dist//css/bootstrap.min.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root{
+    --primary-color: #7533a8;
+    --gray-color: #626163;
+}
