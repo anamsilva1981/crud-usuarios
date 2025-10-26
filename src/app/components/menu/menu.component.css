@@ -31,7 +31,7 @@
         transition: 0.3s linear all;
         
         mat-icon{ 
-            margin-right: 14px;
+            margin-right: 16px;
             font-size: 22px;
         }
 
@@ -42,7 +42,7 @@
         }
 
     }
-    
+
     .logout{
         position: absolute;
         bottom: 0px;
