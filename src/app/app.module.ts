@@ -18,6 +18,7 @@ import { CrudComponent } from './pages/crud/crud.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginator } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatPaginator,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [
