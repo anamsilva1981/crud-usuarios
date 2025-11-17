@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginator } from '@angular/material/paginator';
+import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -27,8 +29,10 @@ import { MatPaginator } from '@angular/material/paginator';
     LoginComponent,
     HomeComponent,
     MenuComponent,
-    CrudComponent
+    CrudComponent,
+    ModalViewUserComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,11 +43,12 @@ import { MatPaginator } from '@angular/material/paginator';
     MatFormFieldModule,
     MatInputModule,
     MatPaginator,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
+
   providers: [
     provideAnimationsAsync(),
-    // provideFirebaseApp(() => initializeApp({"projectId":"crud-usuarios-angular-b0fbd","appId":"1:950184635767:web:7b37ad001297001b970572","storageBucket":"crud-usuarios-angular-b0fbd.firebasestorage.app","apiKey":"AIzaSyATCHHwEJ3bqxHUhDzo2hx6V6ECea8IeFw","authDomain":"crud-usuarios-angular-b0fbd.firebaseapp.com","messagingSenderId":"950184635767","projectNumber":"950184635767","version":"2"})),
     provideFirestore(() => getFirestore())
   ],
   bootstrap: [AppComponent]

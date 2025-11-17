@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
 
 
 @Component({
@@ -20,7 +22,10 @@ export class CrudComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   
-  constructor(private usersService: UsersService){
+  constructor(
+    private usersService: UsersService,
+    public dialog: MatDialog
+  ){
     this.dataSource = new MatTableDataSource<any>(this.listUsers);
   }
 
@@ -57,5 +62,15 @@ export class CrudComponent {
       this.dataSource.paginator.firstPage();
     }
 
+  }
+
+  // Lógica do modal
+  openModalViewUser(user: User){
+    this.dialog.open(ModalViewUserComponent, {
+      width: '700px',
+      height: '330px',
+      data: user
+
+    })
   }
 }
