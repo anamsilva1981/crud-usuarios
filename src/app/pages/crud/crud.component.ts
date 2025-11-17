@@ -15,13 +15,13 @@ export class CrudComponent {
 
   displayedColumns: string[] = ['id', 'name', 'email', 'role', 'benefits', 'action'];
   dataSource: any;
-  listusers: User[] = [];
+  listUsers: User[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   
   constructor(private usersService: UsersService){
-    this.dataSource = new MatTableDataSource<any>(this.listusers);
+    this.dataSource = new MatTableDataSource<any>(this.listUsers);
   }
 
   ngOnInit(){
@@ -37,9 +37,9 @@ export class CrudComponent {
     this.usersService.getAllUsers().subscribe({
       next: (response: any) => {
         console.log('-- lista de usuários: ', response)
-        this.listusers = response;
+        this.listUsers = response;
 
-        this.dataSource = new MatTableDataSource<any>(this.listusers);
+        this.dataSource = new MatTableDataSource<any>(this.listUsers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
