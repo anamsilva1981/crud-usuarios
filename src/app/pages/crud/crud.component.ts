@@ -1,3 +1,4 @@
+import { ModalFormUserComponent } from './modal-form-user/modal-form-user.component';
 import { Component, ViewChild } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -70,7 +71,14 @@ export class CrudComponent {
       width: '700px',
       height: '330px',
       data: user
-
     })
   }
+
+  openModalAddUser(){
+    this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '330px',
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
+
 }
