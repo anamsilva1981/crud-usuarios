@@ -1,8 +1,10 @@
 import { MatDialogRef } from '@angular/material/dialog';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
 import { User } from '../../../interfaces/user';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-modal-form-user',
@@ -28,7 +30,8 @@ export class ModalFormUserComponent {
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     private formBuilder: FormBuilder,
-    private userService: UsersService
+    private userService: UsersService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ){}
 
   ngOnInit(){
@@ -37,6 +40,24 @@ export class ModalFormUserComponent {
 
   saveUser(){
     const objectUserForm: User = this.formUser.getRawValue();
+
+    if(this.data && this.data.name){
+      
+      this.userService.updateUser(this.data.firebaseId, objectUserForm).then(
+      (response: any) => {
+        window.alert('Usuário editado com sucesso');
+        this.closeModal();
+      }
+    )
+
+    } else {
+    //   this.userService.addUser(objectUserForm).then(
+    //   (response: any) => {
+    //     window.alert('Usuário salvo com sucesso');
+    //     this.closeModal();
+    //   }
+    // )
+    
     this.userService.addUser(objectUserForm).then(
       (response: any) => {
         window.alert('Usuário salvo com sucesso');
@@ -47,8 +68,9 @@ export class ModalFormUserComponent {
         console.log('Erro ao cadastrar usuário', err)
         window.alert('Usuário salvo com sucesso');
       });
+    } 
   }
-
+  
   buildForm(){
     this.formUser = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(3)]],
@@ -58,6 +80,21 @@ export class ModalFormUserComponent {
       healthPlan: [null],
       dentalPlan: [null]
     })
+
+    if(this.data && this.data.name){
+      this.fillForm();
+    }
+  }
+
+  fillForm(){
+    this.formUser.patchValue({
+      name: this.data.name,
+      email: this.data.email,
+      sector: this.data.sector,
+      role: this.data.role,
+      healthPlan: this.data.healthPlan,
+      dentalPlan: this.data.dentalPlan
+    });
   }
 
   closeModal(){ 

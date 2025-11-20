@@ -5,7 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { User } from '../../interfaces/user';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalViewUserComponent } from './modal-view-user/modal-view-user.component';
 
 
@@ -78,7 +78,15 @@ export class CrudComponent {
   openModalAddUser(){
     this.dialog.open(ModalFormUserComponent, {
       width: '700px',
-      height: '330px',
+      height: '530px',
+    }).afterClosed().subscribe(() => this.getListUsers());
+  }
+
+  openModalEditUser(user: User){
+        this.dialog.open(ModalFormUserComponent, {
+      width: '700px',
+      height: '530px',
+      data: user
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
