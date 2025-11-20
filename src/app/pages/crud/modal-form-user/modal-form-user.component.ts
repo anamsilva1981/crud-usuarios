@@ -55,12 +55,6 @@ export class ModalFormUserComponent {
     )
 
     } else {
-    //   this.userService.addUser(objectUserForm).then(
-    //   (response: any) => {
-    //     window.alert('Usuário salvo com sucesso');
-    //     this.closeModal();
-    //   }
-    // )
     
     this.userService.addUser(objectUserForm).then(
       (response: any) => {

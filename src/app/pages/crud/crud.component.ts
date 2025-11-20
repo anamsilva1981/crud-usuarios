@@ -90,4 +90,19 @@ export class CrudComponent {
     }).afterClosed().subscribe(() => this.getListUsers());
   }
 
+  deleteUser(firebaseId: string){
+    this.usersService.deleteUser(firebaseId).then(
+      (response: any) => {
+        window.alert('Cadastro deletado com sucesso')
+      }
+    ).catch(
+      (err: any) => {
+        console.log('Erro ao cadastrar usuário', err)
+        window.alert('Usuário salvo com sucesso');
+      });
+     
+    this.getListUsers();
+  }
 }
+
+
