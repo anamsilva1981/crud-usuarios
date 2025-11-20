@@ -48,6 +48,7 @@ export class CrudComponent {
         this.dataSource = new MatTableDataSource<any>(this.listUsers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.paginator._intl.itemsPerPageLabel="Itens por página";
       },
       error: (error: any) => {
         console.log('-- Error ao listar os usuários: ', error)

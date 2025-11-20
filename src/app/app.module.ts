@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +22,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { ModalViewUserComponent } from './pages/crud/modal-view-user/modal-view-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-user.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { ModalFormUserComponent } from './pages/crud/modal-form-user/modal-form-
     MatInputModule,
     MatPaginator,
     MatDialogModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
 
