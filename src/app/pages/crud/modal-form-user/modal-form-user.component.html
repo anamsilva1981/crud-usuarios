@@ -1,7 +1,8 @@
 <div class="container-fluid p-3">
     <mat-icon class="float-end" (click)="closeModal()">close</mat-icon>
 
-    <h1 class="titulo">Formulário de Usuário</h1>
+    <h1 class="titulo" *ngIf="editUser">Edite os dados de Usuário</h1>
+    <h1 class="titulo" *ngIf="!editUser">Cadastro de Usuário</h1>
     <h2 class="subtitulo">Preencha o formulario para salvar os dados do usuário</h2>
 
     <form class="row" [formGroup]="formUser">

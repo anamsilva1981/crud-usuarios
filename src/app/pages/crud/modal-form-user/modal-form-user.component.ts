@@ -11,9 +11,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './modal-form-user.component.html',
   styleUrl: './modal-form-user.component.css'
 })
+
 export class ModalFormUserComponent {
 
   formUser!: FormGroup;
+  editUser: boolean = false;
   listHelthPlan = [
     {id: 1, description: 'Plano 300 Enfermaria'},
     {id: 2, description: 'Plano 400 Enfermaria'},
@@ -26,7 +28,6 @@ export class ModalFormUserComponent {
     {id: 3, description: 'Plano Plus'} 
   ]
   
-
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     private formBuilder: FormBuilder,
@@ -36,6 +37,9 @@ export class ModalFormUserComponent {
 
   ngOnInit(){
     this.buildForm();
+    if(this.data && this.data.name){
+      this.editUser = true;
+    }
   }
 
   saveUser(){
