@@ -10,7 +10,8 @@ export class HomeComponent {
   userName!: string | null;
 
   ngOnInit(){
-    this.userName = sessionStorage.getItem('user')
+    // this.userName = sessionStorage.getItem('user')
+    this.userName = 'Ana Maria';
   }
 
 }

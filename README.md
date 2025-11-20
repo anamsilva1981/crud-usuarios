@@ -1,27 +1,130 @@
-# CrudUsuarios
+# CRUD Usuários – Sistema de Gerenciamento
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Aplicação desenvolvida em Angular 17, Angular Material e Firebase, com foco em um CRUD completo de usuários e seus benefícios, com interface moderna, responsiva e organizada por boas práticas de arquitetura.
 
-## Development server
+## 🚀 Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular 17**
+- **Angular Material**
+- **Firebase Firestore**
+- **RxJS**
+- **TypeScript**
+- **SCSS**
+- **Reactive Forms**
 
-## Code scaffolding
+## 📸 Screenshots
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🏠 Dashboard
+![Dashboard](./src/assets/image/print-tela.png)
 
-## Build
+### ✏️ Modal de Edição
+![Modal Edit](./src/assets/image/print-tela2.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📌 Funcionalidades
 
-## Running unit tests
+### 👥 Gestão de Usuários
+- Cadastro com validações reativas
+- Edição via modal (Angular Material Dialog)
+- Exclusão de usuários
+- Listagem com tabela dinâmica
+- Visualização de benefícios
+- Regras de validação entre plano odontológico e plano de saúde
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 📊 Dashboard
+- Total de usuários
+- Total de benefícios
+- Último usuário cadastrado
+- Indicadores em gráficos circulares
 
-## Running end-to-end tests
+### 🔐 Autenticação (Login básico)
+- Tela de login estruturada para futura integração com Firebase Auth
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🏗️ Arquitetura do Projeto
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    src/
+    └── app/
+    ├── components/
+    │   ├── button/
+    │   └── menu/
+    │
+    ├── interfaces/
+    │   └── user.ts
+    │
+    ├── pages/
+    │   ├── crud/
+    │   │   ├── modal-form-user/
+    │   │   ├── modal-view-user/
+    │   │   ├── crud.component.ts
+    │   │   ├── crud.component.html
+    │   │   ├── crud.component.css
+    │   │   └── crud.component.spec.ts
+    │   │
+    │   ├── home/
+    │   └── login/
+    │
+    ├── services/
+    │   └── users.service.ts
+    │
+    ├── app-routing.module.ts
+    ├── app.module.ts
+    ├── app.component.ts
+    ├── app.component.html
+    └── app.component.css
+
+
+## 🔥 Configuração do Firebase
+
+Crie o arquivo: `src/environments/environment.ts`
+
+E adicione:
+
+```typescript
+export const environment = {
+  firebaseConfig: {
+    apiKey: "...",
+    authDomain: "...",
+    projectId: "...",
+    storageBucket: "...",
+    messagingSenderId: "...",
+    appId: "..."
+  }
+};
+```
+
+
+⚙️ Como Rodar o Projeto
+
+#### 1️⃣ Instalar dependências
+```typescript
+npm install
+```
+
+#### 2️⃣ Rodar o servidor local
+```typescript
+ng serve
+```
+
+#### 3️⃣ Abrir no navegador
+```typescript
+http://localhost:4200
+```
+
+
+## ✔️ Destaques Técnicos
+Reactive Forms com validações personalizadas
+
+Uso avançado do Angular Material (Dialog, Inputs, Tabela, Botões etc.)
+
+Firebase Firestore + RxJS (Observables)
+
+Componentes reutilizáveis (Menu, Button)
+
+Arquitetura modular e escalável
+
+CSS organizado e responsivo
+
+👩‍💻 Autora
+Ana Maria
+Frontend Developer – Angular
+
