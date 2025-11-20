@@ -1,6 +1,8 @@
 import { MatDialogRef } from '@angular/material/dialog';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsersService } from '../../../services/users.service';
+import { User } from '../../../interfaces/user';
 
 @Component({
   selector: 'app-modal-form-user',
@@ -26,10 +28,25 @@ export class ModalFormUserComponent {
   constructor(
     public dialogRef: MatDialogRef<ModalFormUserComponent>,
     private formBuilder: FormBuilder,
+    private userService: UsersService
   ){}
 
   ngOnInit(){
     this.buildForm();
+  }
+
+  saveUser(){
+    const objectUserForm: User = this.formUser.getRawValue();
+    this.userService.addUser(objectUserForm).then(
+      (response: any) => {
+        window.alert('Usuário salvo com sucesso');
+        this.closeModal();
+      }
+    ).catch(
+      (err: any) => {
+        console.log('Erro ao cadastrar usuário', err)
+        window.alert('Usuário salvo com sucesso');
+      });
   }
 
   buildForm(){
@@ -38,8 +55,8 @@ export class ModalFormUserComponent {
       email: [null, [Validators.required, Validators.email]],
       sector: [null, [Validators.required, Validators.minLength(3)]],
       role: [null, [Validators.required, Validators.minLength(3)]],
-      healthPlan: [''],
-      dentalPlan: ['']
+      healthPlan: [null],
+      dentalPlan: [null]
     })
   }
 

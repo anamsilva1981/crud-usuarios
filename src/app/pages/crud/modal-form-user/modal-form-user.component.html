@@ -75,15 +75,16 @@
             <mat-form-field class="full-width w-100">
                 <mat-label> <mat-icon>favorite</mat-icon> Plano Odontológico</mat-label>
                 <mat-select formControlName="dentalPlan">
-                    <mat-option *ngFor="let plan of listDentalPlan">
-                        <mat-option [value]="plan.description">{{ plan.description }}</mat-option>
-                    </mat-option>
+                    <mat-option></mat-option>
+                    @for (plan of listDentalPlan; track plan) {
+                    <mat-option [value]="plan.description">{{ plan.description }}</mat-option>
+                    }
                 </mat-select>
             </mat-form-field>
          </div>
 
          <div class="col-12">
-            <button class="btn-primary float-end" [disabled]="!formUser.valid">Salvar</button>
+            <button class="btn-primary float-end" [disabled]="!formUser.valid" (click)="saveUser()">Salvar</button>
          </div>
 
     </form>
