@@ -17,7 +17,14 @@
                         <app-button textButton="Iniciar" routerLink="/crud"></app-button>
                     </div>
                     <div class="col-12 col-md-4">
-                        <img src="../../../assets/image/dashboard.png" alt="Imagem Dashboard" width="100%">
+                        @defer {
+                            <img src="../../../assets/image/dashboard.png" alt="Imagem Dashboard" width="100%">
+                        } @placeholder {
+                            carregando imagem ...
+                        } @error {
+                            Falha ao carregar a imagem 
+                        }
+
                     </div>
                 </div>
             </div>
